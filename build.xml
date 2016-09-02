@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<project name="WEB" default="deploy" basedir=".">
+	<property environment="env"></property>
+	<target name="deploy">
+		<!-- <sshexec host="58.60.231.2" username="root" password="sxdt@2016" port="50001" command="rm -rf  /opt/release/api/ysm/nexus.txt" trust="true"  verbose="true" >
+		</sshexec>-->
+		<scp todir="root@58.60.231.2:/usr/local/openapi/tomcat6_apidoc_8011/webapps/apidoc/examples/md" port="42144" password="123456"  trust="true" verbose="true" >
+			<fileset dir="${basedir}/src/main/webapp/examples/md" includes="**/jianfa_api_doc.md"/>
+		</scp>
+	</target>
+</project>
